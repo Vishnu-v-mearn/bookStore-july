@@ -1,0 +1,28 @@
+const multer = require('multer')
+
+//diskStorage
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./uploads");
+  },
+
+  filename: (req, file, cb) => {
+    let date = Date.now();
+    cb(null, `Bookstore-resume-${date}-${file.originalname}`);
+  },
+});
+
+//filefilter
+
+const filefilter = (req, file, cb) => {
+  if (file.mimetype == "application/pdf") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const resumeMulterConfig = multer({ storage, filefilter });
+
+module.exports = resumeMulterConfig;
