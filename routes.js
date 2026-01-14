@@ -2,7 +2,7 @@ const express = require("express");
 
 const authController = require("./controllers/authController");
 
-const jwtMiddleware = require("./middlewares/jwtmiddleware");
+const jwtMiddleware = require("./middlewares/jwtMiddlewares");
 
 const bookController = require("./controllers/bookController");
 
